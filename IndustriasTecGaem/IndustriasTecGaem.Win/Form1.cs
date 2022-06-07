@@ -16,11 +16,10 @@ namespace IndustriasTecGaem.Win
         public Form1()
         {
             InitializeComponent();
-        }
+            var productosBL = new ProductosBL();
+            var listaDeProductos = productosBL.ObtenerProductos();
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            listaDeProductosBindingSource.DataSource = listaDeProductos;
         }
     }
 }
