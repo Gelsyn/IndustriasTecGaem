@@ -1,4 +1,4 @@
-﻿using IndustriasTecGaem.Web.Models;
+﻿using IndustriasTecGaem.BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,22 +12,8 @@ namespace IndustriasTecGaem.Web.Controllers
         // GET: Productos
         public ActionResult Index()
         {
-            var producto1 = new ProdutoModel();
-            producto1.Id = 1;
-            producto1.Descripcion = "Tarjeta Madre Estandar para Intel";
-
-            var producto2 = new ProdutoModel();
-            producto2.Id = 2;
-            producto2.Descripcion = "Procesador Intel Core i5 4800";
-
-            var producto3 = new ProdutoModel();
-            producto3.Id = 3;
-            producto3.Descripcion = "Tarjeta Grafica GT 950 2GB";
-
-            var listaDeProductos = new List<ProdutoModel>();
-            listaDeProductos.Add(producto1);
-            listaDeProductos.Add(producto2);
-            listaDeProductos.Add(producto3);
+            var productosBL = new ProductosBL();
+            var listaDeProductos = productosBL.ObtenerProductos();
             return View(listaDeProductos);
         }
     }
